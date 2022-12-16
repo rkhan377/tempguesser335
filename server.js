@@ -61,10 +61,8 @@ app.get("/", async(request, response) => {
 
 let citytemp = "";
 let realtemp = "";
-str = "http://api.weatherapi.com/v1/current.json?key="+key+"&q="+getCity();
-console.log(str);
 app.get("/game", (request, response) => {
-    fetch(str).then(response => {
+    fetch("http://api.weatherapi.com/v1/current.json?key="+key+"&q="+getCity()).then(response => {
     return response.json();
 }).then(res =>{
     citytemp = res.location.name;
